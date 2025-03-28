@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use functional components only; no class components.
+- Strictly adhere to TypeScript with explicit typing; avoid any types unless absolutely necessary.
+- Follow modern ES6+ JavaScript practices (arrow functions, destructuring, async/await).
+- Keep components small, focused, and maintainable (one component per file).
