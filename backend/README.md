@@ -6,7 +6,8 @@ This is the backend service for the AI-driven budgeting tool, built with Express
 
 - Node.js (v20 or higher)
 - Yarn
-- Docker (optional)
+- Docker and Docker Compose
+- MongoDB (via Docker)
 
 ## Setup
 
@@ -17,9 +18,22 @@ This is the backend service for the AI-driven budgeting tool, built with Express
    ```
 
 2. Create a `.env` file in the root directory with the following variables:
+
    ```
    PORT=3000
    NODE_ENV=development
+
+   # MongoDB Configuration
+   MONGODB_URI=mongodb://admin:password123@localhost:27017/budget-app?authSource=admin
+   MONGODB_USER=admin
+   MONGODB_PASSWORD=password123
+   MONGODB_DATABASE=budget-app
+   ```
+
+3. Start MongoDB using Docker Compose:
+
+   ```bash
+   docker-compose up -d
    ```
 
 ## Development
@@ -63,6 +77,19 @@ docker run -p 3000:3000 budget-app-backend
 ## API Endpoints
 
 - `GET /api/health-check` - Health check endpoint
+
+## Database Schema
+
+### BudgetItem
+
+- title: string (required)
+- amount: number (required, min: 0)
+- category: string (required)
+- type: "income" | "expense" (required)
+- date: Date (required)
+- description: string (optional)
+- createdAt: Date (auto-generated)
+- updatedAt: Date (auto-generated)
 
 ## Scripts
 

@@ -4,9 +4,13 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import { ApiResponse, HttpStatus } from "./types";
 import { errorHandler } from "./middleware/errorHandler";
+import connectDB from "./config/database";
 
 // Load environment variables
 dotenv.config();
+
+// Connect to MongoDB
+connectDB();
 
 const app: Express = express();
 
