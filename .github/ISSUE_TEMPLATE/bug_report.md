@@ -1,4 +1,11 @@
 ---
+name: Bug Report
+about: Create a report to help us improve
+title: "[Bug] "
+labels: "bug"
+assignees: ""
+---
+
 ### Bug Report: [Short title describing the bug]
 
 **Priority:** [High / Medium / Low]  

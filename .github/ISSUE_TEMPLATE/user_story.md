@@ -1,4 +1,11 @@
 ---
+name: User Story
+about: Create a new user story for the AI-driven budgeting tool
+title: "[User Story] "
+labels: "enhancement"
+assignees: ""
+---
+
 ### User Story: [Short title describing the user story]
 
 **Epic:** [Epic Name or ID]  
