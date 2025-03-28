@@ -6,15 +6,6 @@ labels: "enhancement"
 assignees: ""
 ---
 
-### User Story: [Short title describing the user story]
-
-**Epic:** [Epic Name or ID]  
-**Priority:** [High / Medium / Low]  
-**Status:** [To Do / In Progress / Review / Done]  
-**Assignee:** [Unassigned / Person responsible]
-
----
-
 ### Description
 
 _As a **[user role]**, I want **[feature/action]** so that **[benefit/value]**._
