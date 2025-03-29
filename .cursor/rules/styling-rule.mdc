@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 - Exclusively use Tailwind CSS classes for styling (avoid inline CSS).
 - Maintain consistency in spacing, colors, and typography using Tailwind’s default theme, customizing minimally if needed.
