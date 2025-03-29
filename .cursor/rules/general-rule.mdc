@@ -3,7 +3,108 @@ description:
 globs: 
 alwaysApply: true
 ---
-- Use functional components only; no class components.
-- Strictly adhere to TypeScript with explicit typing; avoid any types unless absolutely necessary.
-- Follow modern ES6+ JavaScript practices (arrow functions, destructuring, async/await).
-- Keep components small, focused, and maintainable (one component per file).
+# Cursor Rules for Budgetly
+
+You are an expert in TypeScript, React, Vite, Node.js, Express, TanStack Router, TanStack Query, React Hook Form, Zod, Tailwind CSS, and Mongoose.
+
+When applying a rule, clearly state which rule is being applied.
+
+## Key Principles
+- Write concise, clear, and maintainable TypeScript code with explicit type definitions.
+- Exclusively use functional components and hooks; do not use class components.
+- Adhere strictly to declarative programming patterns.
+- Favor modularization and reusable hooks/components over code duplication.
+- Use descriptive variable names clearly indicating state (e.g., isLoading, hasError, isAuthenticated).
+- Clearly structured files: exported component first, followed by subcomponents, helpers, static constants, and type definitions.
+
+## Naming Conventions
+- Use lowercase with dashes for directory names (e.g., components/budget-card).
+- Favor named exports for all components and utilities.
+- Component filenames should match component names exactly (PascalCase).
+
+## TypeScript Usage
+- TypeScript is mandatory for all files.
+- Prefer interfaces for data structures; reserve types for unions and intersections.
+- Avoid enums; prefer plain objects or maps for constant values.
+- Clearly define prop interfaces for React functional components.
+
+## Syntax and Formatting
+- Use arrow functions consistently for components and callbacks.
+- Always use concise conditional syntax; omit unnecessary curly braces.
+- Write JSX in a declarative and concise manner.
+- ESLint and Prettier are mandatory for consistent code formatting.
+
+## UI and Styling
+- Use Tailwind CSS exclusively for styling and layout.
+- Implement responsive design from a mobile-first perspective.
+- Avoid inline styling; always prefer Tailwind CSS utility classes.
+
+## Performance Optimization
+- Keep state management minimal; prefer using React Query for fetching and caching data.
+- Avoid unnecessary usage of useEffect; prefer TanStack Query hooks for data synchronization.
+- Use dynamic imports (React.lazy, Vite dynamic imports) for heavy, non-critical components.
+- Optimize image loading using modern formats (WebP) with explicit sizing and lazy-loading.
+
+## Routing and State Management
+- Exclusively use TanStack Router for type-safe routing.
+- Manage URL state using built-in TanStack Router features.
+- Leverage React Query for all asynchronous data fetching and server-state synchronization.
+
+## Forms and Validation
+- Exclusively use React Hook Form for managing forms and validation.
+- Define clear validation schemas using Zod.
+- Provide explicit and descriptive validation messages for all form fields.
+
+## Database
+- Use Mongoose for MongoDB interactions.
+- Clearly define schema and models with explicit typings.
+- Handle errors and validations explicitly.
+
+## Docker and Deployment
+- Containerize frontend and backend clearly using Docker.
+- Use Docker Compose for local orchestration.
+- Clearly document all Docker-related configurations and instructions in README.
+
+## Imports
+- Always use absolute imports; avoid relative imports.
+
+## File and Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── ui/
+│   │   └── shared/
+│   ├── pages/
+│   ├── routes/
+│   ├── hooks/
+│   ├── services/
+│   ├── utils/
+│   ├── App.tsx
+│   └── main.tsx
+├── public/
+├── tailwind.config.js
+├── vite.config.ts
+├── tsconfig.json
+├── .eslintrc.json
+└── .prettierrc
+
+backend/
+├── src/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middleware/
+│   ├── models/
+│   ├── services/
+│   ├── utils/
+│   └── index.ts
+├── tsconfig.json
+├── Dockerfile
+└── .env.example
+
+docker-compose.yml
+README.md
+```
+
+These rules will help ensure consistency, maintainability, and high quality throughout the Budgetly project implementation.

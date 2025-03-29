@@ -1,8 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: true
----
-- Exclusively use Tailwind CSS classes for styling (avoid inline CSS).
-- Maintain consistency in spacing, colors, and typography using Tailwind’s default theme, customizing minimally if needed.
-- Use responsive utilities (e.g., sm:, md:, lg:) to optimize for mobile and tablet devices first.
