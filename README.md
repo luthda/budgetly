@@ -1,4 +1,4 @@
-# 📈 Personal Budgeting Tool
+# 📈 Budgetly - Personal Budgeting Tool
 
 A simple, intuitive, and powerful budgeting application designed to help you easily track, manage, and visualize your personal finances. Built specifically for ease of use on mobile devices, this project leverages AI-driven tools and methodologies for an optimized development process.
 

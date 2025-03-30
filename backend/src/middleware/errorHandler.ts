@@ -1,30 +1,40 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
-import { ApiException, ApiResponse, HttpStatus } from "../types";
+import { Request, Response, NextFunction } from "express";
+import { ZodError } from "zod";
 
-export const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
-  console.error(err.stack);
+export class AppError extends Error {
+  constructor(public statusCode: number, public message: string, public isOperational = true) {
+    super(message);
+    Object.setPrototypeOf(this, AppError.prototype);
+  }
+}
 
-  if (err instanceof ApiException) {
-    const response: ApiResponse = {
-      success: false,
-      error: {
-        code: err.code,
-        message: err.message,
-        details: err.details,
-      },
-    };
-    res.status(err.statusCode).json(response);
-    return;
+export const errorHandler = (
+  err: Error | AppError | ZodError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (err instanceof AppError) {
+    return res.status(err.statusCode).json({
+      status: "error",
+      message: err.message,
+      ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
+    });
   }
 
-  // Handle unknown errors
-  const response: ApiResponse = {
-    success: false,
-    error: {
-      code: "INTERNAL_SERVER_ERROR",
-      message: "An unexpected error occurred",
-      details: process.env.NODE_ENV === "development" ? { stack: err.stack } : undefined,
-    },
-  };
-  res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(response);
+  if (err instanceof ZodError) {
+    return res.status(400).json({
+      status: "error",
+      message: "Validation failed",
+      errors: err.errors,
+    });
+  }
+
+  // Default error
+  console.error("Error:", err);
+  return res.status(500).json({
+    status: "error",
+    message: "Internal server error",
+    ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
+  });
 };

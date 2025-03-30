@@ -53,3 +53,7 @@ This diagram illustrates the high-level architecture of our AI-driven budgeting 
    - Managed through MongoDB Atlas for scalability and reliability
 
 The architecture follows a clear separation of concerns and is designed to be scalable, maintainable, and secure. Each layer communicates through well-defined interfaces, primarily using REST APIs over HTTPS.
+
+## Domain Model
+
+For detailed information about the data model and entity relationships, see the [Domain Model Documentation](./domain-model.md).
