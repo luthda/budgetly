@@ -38,6 +38,8 @@ When applying a rule, clearly state which rule is being applied.
 - Use Tailwind CSS exclusively for styling and layout.
 - Implement responsive design from a mobile-first perspective.
 - Avoid inline styling; always prefer Tailwind CSS utility classes.
+- Use shadcn exclusively as the component library. 
+- Split large React components into smaller, reusable components based on logical UI or functional separation.
 
 ## Performance Optimization
 - Keep state management minimal; prefer using React Query for fetching and caching data.
