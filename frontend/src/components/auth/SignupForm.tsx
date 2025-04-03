@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
 import { FormInput } from "@/components/form/FormInput";
 import { PasswordInput } from "@/components/form/PasswordInput";
 import { Button } from "@/components/ui/button";
-import { Loader2, ArrowRight } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const signupSchema = z
   .object({
@@ -56,6 +55,7 @@ export const SignupForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<SignupFormData>({
+    mode: "all",
     resolver: zodResolver(signupSchema),
   });
 
@@ -82,9 +82,21 @@ export const SignupForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <FormInput label="Email" type="email" error={errors.email} {...register("email")} />
-      <PasswordInput label="Password" error={errors.password} {...register("password")} />
+      <FormInput
+        id="email"
+        label="Email"
+        type="email"
+        error={errors.email}
+        {...register("email")}
+      />
       <PasswordInput
+        id="password"
+        label="Password"
+        error={errors.password}
+        {...register("password")}
+      />
+      <PasswordInput
+        id="confirmPassword"
         label="Confirm Password"
         error={errors.confirmPassword}
         {...register("confirmPassword")}

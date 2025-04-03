@@ -106,7 +106,7 @@
 - Express with TypeScript
 - Mongoose for database operations
 - bcrypt for password hashing
-- Jest for testing
+- Vitest for testing
 
 ## Dependencies
 
