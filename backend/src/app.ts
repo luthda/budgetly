@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { ApiResponse, HttpStatus } from "./types";
 import { errorHandler } from "./middleware/errorHandler";
 import connectDB from "./config/database";
+import authRoutes from "./routes/auth";
 
 // Load environment variables
 dotenv.config();
@@ -31,12 +32,15 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+// Routes
+app.use("/api/auth", authRoutes);
+
 // Health check endpoint
 app.get("/api/health-check", (req, res) => {
   res.sendSuccess({ timestamp: new Date().toISOString() });
 });
 
 // Error handling middleware
-app.use(errorHandler as ErrorRequestHandler);
+app.use(errorHandler);
 
 export default app;

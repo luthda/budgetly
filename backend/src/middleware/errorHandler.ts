@@ -15,26 +15,29 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   if (err instanceof AppError) {
-    return res.status(err.statusCode).json({
+    res.status(err.statusCode).json({
       status: "error",
       message: err.message,
       ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
     });
+    return next();
   }
 
   if (err instanceof ZodError) {
-    return res.status(400).json({
+    res.status(400).json({
       status: "error",
       message: "Validation failed",
       errors: err.errors,
     });
+    return next();
   }
 
   // Default error
   console.error("Error:", err);
-  return res.status(500).json({
+  res.status(500).json({
     status: "error",
     message: "Internal server error",
     ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
   });
+  return next();
 };
