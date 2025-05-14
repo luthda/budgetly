@@ -8,7 +8,7 @@ interface AuthLayoutProps {
   subtitle: string;
 }
 
-export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
+export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/50 p-4 lg:p-8">
       <Card className="w-full max-w-md">
@@ -27,4 +27,4 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
       </Card>
     </div>
   );
-}
+};

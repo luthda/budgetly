@@ -55,7 +55,7 @@ export const SignupForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<SignupFormData>({
-    mode: "all",
+    mode: "onSubmit",
     resolver: zodResolver(signupSchema),
   });
 

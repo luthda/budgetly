@@ -43,7 +43,7 @@ export const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>({
-    mode: "all",
+    mode: "onSubmit",
     resolver: zodResolver(loginSchema),
   });
 
