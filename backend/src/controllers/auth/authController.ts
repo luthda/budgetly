@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { SignupInput, LoginInput, signupSchema, loginSchema } from "./schemas";
+import { signupSchema, loginSchema } from "./schemas";
 import { User } from "../../models/User";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
