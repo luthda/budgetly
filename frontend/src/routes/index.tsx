@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Signup from "../pages/Signup";
+import Login from "../pages/Login";
 
 const rootRoute = createRootRoute({
   component: App,
@@ -26,7 +27,13 @@ const signupRoute = createRoute({
   component: Signup,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, signupRoute]);
+const loginRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/login",
+  component: Login,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, signupRoute, loginRoute]);
 
 export const router = createRouter({ routeTree });
 

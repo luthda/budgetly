@@ -21,8 +21,8 @@ function App() {
                 <Link to="/about" className="text-gray-600 hover:text-gray-900">
                   About
                 </Link>
-                <Link to="/signup" className="text-gray-600 hover:text-gray-900">
-                  Sign Up
+                <Link to="/login" className="text-gray-600 hover:text-gray-900">
+                  Login
                 </Link>
               </div>
             </nav>
